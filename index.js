@@ -13,7 +13,9 @@ export function isIphoneX() {
         checkDemension(896) ||
         checkDemension(926) ||
         checkDemension(852) ||
-        checkDemension(932))
+        checkDemension(932) ||
+        checkDemension(874) ||
+        checkDemension(956))
     )
 }
 
@@ -67,6 +69,11 @@ const _isStatusBarHeight59 = () => {
     return checkDimensions(393, 852) || checkDimensions(430, 932)
 }
 
+// 16 Pro, 16 Pro Max
+const _isStatusBarHeight61 = () => {
+    return checkDimensions(402, 874) || checkDimensions(440, 956)
+}
+
 const _getIphoneStatusBarHeight = () => {
     if (isIphoneX()) {
         if (_isStatusBarHeight47()) {
@@ -80,6 +87,9 @@ const _getIphoneStatusBarHeight = () => {
         }
         if (_isStatusBarHeight59()) {
             return 59
+        }
+        if (_isStatusBarHeight61()) {
+            return 61
         }
         return 44
     }
